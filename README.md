@@ -1,6 +1,6 @@
 ## About
 
-Repository that replicates the issue reported in [this issue](https://github.com/hisorange/browser-detect/issues/227).
+A repository that replicates the issue reported in [this issue](https://github.com/hisorange/browser-detect/issues/227).
 
 This issue only seems replicable when a route with Route Model Bindings is requested more than once and the route handler is using the Browser Detect package.
 
@@ -10,12 +10,13 @@ See `ProfileController.php@show`
 
 1. Clone the repository
 2. Ensure your PHP version is `8.4`
-3. Run `composer install`
-4. Run `npm install`
-5. Run `php artisan key:generate`
-6. Run `php artisan migrate`
-7. Run `npm build`
-8. Run `php artisan test`
+3. Run `cp .env.example .env`
+4. Run `composer install`
+5. Run `npm install`
+6. Run `php artisan key:generate`
+7. Run `php artisan migrate`
+8. Run `npm run build`
+9. Run `php artisan test`
 
 Note: The test `test_profile_page_is_displayed_for_specific_user` will fail with the error `zend_mm_heap corrupted`
 
