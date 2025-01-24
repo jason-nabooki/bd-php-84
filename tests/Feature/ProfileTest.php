@@ -21,6 +21,22 @@ class ProfileTest extends TestCase
         $response->assertOk();
     }
 
+    public function test_profile_page_is_displayed_for_specific_user(): void
+    {
+        $user = User::factory()->create();
+
+        $this
+            ->actingAs($user)
+            ->get(route('profile.show', [$user]))
+            ->assertOk();
+
+        // Subsequent requests cause "zend_mm_heap corrupted"
+        $this
+            ->actingAs($user)
+            ->get(route('profile.show', [$user]))
+            ->assertOk();
+    }
+
     public function test_profile_information_can_be_updated(): void
     {
         $user = User::factory()->create();
